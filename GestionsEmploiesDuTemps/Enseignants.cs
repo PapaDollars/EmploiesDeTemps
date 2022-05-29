@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace GestionsEmploiesDuTemps
 {
-    public partial class Form1 : Form
+    public partial class Enseignants : Form
     {
-        public Form1()
+        public Enseignants()
         {
             InitializeComponent();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -34,9 +24,17 @@ namespace GestionsEmploiesDuTemps
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Enseignants objects = new Enseignants();
-            objects.Show();
-            this.Hide();
+           
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -50,12 +48,12 @@ namespace GestionsEmploiesDuTemps
             objects.Show();
             this.Hide();
         }
-       
-        private void label6_Click_1(object sender, EventArgs e)
-        {
-          Close();
-        }
 
-        
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+            Form1 objects = new Form1();
+            objects.Show();
+            this.Hide();
+        }
     }
 }

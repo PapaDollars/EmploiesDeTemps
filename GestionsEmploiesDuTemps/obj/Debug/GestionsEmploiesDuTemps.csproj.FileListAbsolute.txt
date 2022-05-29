@@ -1,1 +1,12 @@
 c:\users\msi papa-dollars\documents\visual studio 2012\Projects\GestionsEmploiesDuTemps\GestionsEmploiesDuTemps\bin\Debug\GestionsEmploiesDuTemps.exe.config
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\GestionsEmploiesDuTemps.exe.config
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\GestionsEmploiesDuTemps.exe
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\GestionsEmploiesDuTemps.pdb
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.csprojResolveAssemblyReference.cache
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Emplois.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Enseignants.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Form1.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Properties.Resources.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.csproj.GenerateResource.Cache
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.exe
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.pdb
