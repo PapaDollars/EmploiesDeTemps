@@ -30,16 +30,20 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.connecteMatricule = new System.Windows.Forms.MaskedTextBox();
+            this.connecteNnom = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -62,12 +66,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.connecteMatricule);
+            this.panel1.Controls.Add(this.connecteNnom);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(6, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1385, 713);
             this.panel1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label5.Location = new System.Drawing.Point(297, 303);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(258, 39);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "CONNECTION";
             // 
             // panel3
             // 
@@ -78,6 +97,17 @@
             this.panel3.Size = new System.Drawing.Size(468, 96);
             this.panel3.TabIndex = 0;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(191, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ACCUEIL";
             // 
             // panel2
             // 
@@ -123,35 +153,6 @@
             this.label1.Text = "GESTIONS EMPLOIS DE TEMPS";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(224, 150);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Accueil";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(191, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "ACCUEIL";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(242, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Accueil";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -172,6 +173,58 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(61, 32);
             this.panel5.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(994, 166);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 24);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "NOM ";
+            // 
+            // connecteMatricule
+            // 
+            this.connecteMatricule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connecteMatricule.ForeColor = System.Drawing.Color.Black;
+            this.connecteMatricule.Location = new System.Drawing.Point(911, 311);
+            this.connecteMatricule.Name = "connecteMatricule";
+            this.connecteMatricule.Size = new System.Drawing.Size(267, 28);
+            this.connecteMatricule.TabIndex = 49;
+            // 
+            // connecteNnom
+            // 
+            this.connecteNnom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connecteNnom.ForeColor = System.Drawing.Color.Black;
+            this.connecteNnom.Location = new System.Drawing.Point(911, 202);
+            this.connecteNnom.Name = "connecteNnom";
+            this.connecteNnom.Size = new System.Drawing.Size(252, 28);
+            this.connecteNnom.TabIndex = 48;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(983, 274);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 24);
+            this.label7.TabIndex = 52;
+            this.label7.Text = "MATRICULE ";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(911, 455);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(267, 52);
+            this.button4.TabIndex = 53;
+            this.button4.Text = "Se connecter";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -212,11 +265,15 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MaskedTextBox connecteMatricule;
+        private System.Windows.Forms.MaskedTextBox connecteNnom;
+        private System.Windows.Forms.Button button4;
 
     }
 }
