@@ -10,3 +10,13 @@ C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTem
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.csproj.GenerateResource.Cache
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.exe
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.pdb
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\MySql.Data.dll
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\MySql.Data.Entity.dll
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\MySql.Web.dll
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.EmploisTemps.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Cours.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Jour.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Matiere.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Salle.resources
+C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Semaine.resources

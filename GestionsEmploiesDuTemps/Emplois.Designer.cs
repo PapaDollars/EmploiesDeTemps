@@ -35,46 +35,44 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lundiHD = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.matricule = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lundiHF = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.mardiHF = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.semaineRecherche = new System.Windows.Forms.MaskedTextBox();
+            this.semaine = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.mardiHD = new System.Windows.Forms.MaskedTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.jeudiHF = new System.Windows.Forms.MaskedTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.jeudiHD = new System.Windows.Forms.MaskedTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.mercrediHF = new System.Windows.Forms.MaskedTextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.mercrediHD = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dates = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.matricule = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.heures = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.vendrediHF = new System.Windows.Forms.MaskedTextBox();
+            this.LibeleMatiere = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.vendrediHD = new System.Windows.Forms.MaskedTextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.semaine = new System.Windows.Forms.ComboBox();
-            this.dataGridEmplois = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.CodeMatiere = new System.Windows.Forms.MaskedTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.NomSalle = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CodeSalle = new System.Windows.Forms.MaskedTextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.recherche = new System.Windows.Forms.MaskedTextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.recherche = new System.Windows.Forms.MaskedTextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.selectsemeaine = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridEmplois = new System.Windows.Forms.DataGridView();
+            this.jours = new System.Windows.Forms.Label();
+            this.jour = new System.Windows.Forms.MaskedTextBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -151,8 +149,33 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button13);
+            this.panel1.Controls.Add(this.button12);
+            this.panel1.Controls.Add(this.button11);
+            this.panel1.Controls.Add(this.button10);
+            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.semaineRecherche);
+            this.panel1.Controls.Add(this.semaine);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.dates);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.matricule);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.heures);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.LibeleMatiere);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.CodeMatiere);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.NomSalle);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.CodeSalle);
             this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.selectsemeaine);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.recherche);
             this.panel1.Controls.Add(this.button4);
@@ -162,402 +185,330 @@
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.dataGridEmplois);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.semaine);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.vendrediHF);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.vendrediHD);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.jeudiHF);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.jeudiHD);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.mercrediHF);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.mercrediHD);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.mardiHF);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.mardiHD);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lundiHF);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.matricule);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.lundiHD);
+            this.panel1.Controls.Add(this.jours);
+            this.panel1.Controls.Add(this.jour);
             this.panel1.Location = new System.Drawing.Point(4, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1392, 721);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label14
+            // button13
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(13, 211);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 20);
-            this.label14.TabIndex = 51;
-            this.label14.Text = "Lundi :";
+            this.button13.BackColor = System.Drawing.Color.Cyan;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.Color.Black;
+            this.button13.Location = new System.Drawing.Point(905, 666);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(333, 41);
+            this.button13.TabIndex = 125;
+            this.button13.Text = "Charger Tout l\'Emplois de Temps";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // lundiHD
+            // button12
             // 
-            this.lundiHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lundiHD.ForeColor = System.Drawing.Color.Black;
-            this.lundiHD.Location = new System.Drawing.Point(123, 208);
-            this.lundiHD.Name = "lundiHD";
-            this.lundiHD.Size = new System.Drawing.Size(109, 27);
-            this.lundiHD.TabIndex = 48;
+            this.button12.BackColor = System.Drawing.Color.Indigo;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(497, 679);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(111, 33);
+            this.button12.TabIndex = 124;
+            this.button12.Text = "Cours";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // label10
+            // button11
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.Location = new System.Drawing.Point(8, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 20);
-            this.label10.TabIndex = 53;
-            this.label10.Text = "Matricule :";
+            this.button11.BackColor = System.Drawing.Color.Indigo;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(378, 679);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(111, 33);
+            this.button11.TabIndex = 123;
+            this.button11.Text = "Semaine";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // matricule
+            // button10
             // 
-            this.matricule.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.matricule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matricule.ForeColor = System.Drawing.Color.Gray;
-            this.matricule.FormattingEnabled = true;
-            this.matricule.Location = new System.Drawing.Point(123, 135);
-            this.matricule.Name = "matricule";
-            this.matricule.Size = new System.Drawing.Size(168, 28);
-            this.matricule.TabIndex = 52;
-            this.matricule.Text = "Matricule";
+            this.button10.BackColor = System.Drawing.Color.Indigo;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(261, 679);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(111, 33);
+            this.button10.TabIndex = 122;
+            this.button10.Text = "Jour";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label5
+            // button9
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(238, 212);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 54;
-            this.label5.Text = "Heure Debut ";
+            this.button9.BackColor = System.Drawing.Color.Indigo;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(144, 679);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(111, 33);
+            this.button9.TabIndex = 121;
+            this.button9.Text = "Matiere";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // lundiHF
+            // button8
             // 
-            this.lundiHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lundiHF.ForeColor = System.Drawing.Color.Black;
-            this.lundiHF.Location = new System.Drawing.Point(386, 209);
-            this.lundiHF.Name = "lundiHF";
-            this.lundiHF.Size = new System.Drawing.Size(109, 27);
-            this.lundiHF.TabIndex = 55;
+            this.button8.BackColor = System.Drawing.Color.Indigo;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(31, 679);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(107, 33);
+            this.button8.TabIndex = 120;
+            this.button8.Text = "Salle";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // label6
+            // semaineRecherche
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(503, 212);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 20);
-            this.label6.TabIndex = 56;
-            this.label6.Text = "Heure Fin";
+            this.semaineRecherche.Culture = new System.Globalization.CultureInfo("en-US");
+            this.semaineRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semaineRecherche.ForeColor = System.Drawing.Color.Black;
+            this.semaineRecherche.Location = new System.Drawing.Point(719, 100);
+            this.semaineRecherche.Name = "semaineRecherche";
+            this.semaineRecherche.Size = new System.Drawing.Size(141, 27);
+            this.semaineRecherche.TabIndex = 116;
             // 
-            // label7
+            // semaine
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(503, 268);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 20);
-            this.label7.TabIndex = 61;
-            this.label7.Text = "Heure Fin";
-            // 
-            // mardiHF
-            // 
-            this.mardiHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mardiHF.ForeColor = System.Drawing.Color.Black;
-            this.mardiHF.Location = new System.Drawing.Point(386, 265);
-            this.mardiHF.Name = "mardiHF";
-            this.mardiHF.Size = new System.Drawing.Size(109, 27);
-            this.mardiHF.TabIndex = 60;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(238, 268);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 20);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Heure Debut ";
+            this.semaine.Culture = new System.Globalization.CultureInfo("en-US");
+            this.semaine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semaine.ForeColor = System.Drawing.Color.Black;
+            this.semaine.Location = new System.Drawing.Point(171, 65);
+            this.semaine.Name = "semaine";
+            this.semaine.Size = new System.Drawing.Size(223, 27);
+            this.semaine.TabIndex = 115;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 267);
+            this.label9.Location = new System.Drawing.Point(43, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 20);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Mardi :";
+            this.label9.Size = new System.Drawing.Size(93, 20);
+            this.label9.TabIndex = 114;
+            this.label9.Text = "Semaine :";
             // 
-            // mardiHD
+            // label8
             // 
-            this.mardiHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mardiHD.ForeColor = System.Drawing.Color.Black;
-            this.mardiHD.Location = new System.Drawing.Point(123, 264);
-            this.mardiHD.Name = "mardiHD";
-            this.mardiHD.Size = new System.Drawing.Size(109, 27);
-            this.mardiHD.TabIndex = 57;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(43, 163);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 20);
+            this.label8.TabIndex = 113;
+            this.label8.Text = "Matricule :";
             // 
-            // label11
+            // label7
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label11.Location = new System.Drawing.Point(504, 384);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 20);
-            this.label11.TabIndex = 71;
-            this.label11.Text = "Heure Fin";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(43, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.TabIndex = 112;
+            this.label7.Text = "Date :";
             // 
-            // jeudiHF
+            // dates
             // 
-            this.jeudiHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jeudiHF.ForeColor = System.Drawing.Color.Black;
-            this.jeudiHF.Location = new System.Drawing.Point(387, 381);
-            this.jeudiHF.Name = "jeudiHF";
-            this.jeudiHF.Size = new System.Drawing.Size(109, 27);
-            this.jeudiHF.TabIndex = 70;
+            this.dates.Location = new System.Drawing.Point(171, 111);
+            this.dates.Name = "dates";
+            this.dates.Size = new System.Drawing.Size(223, 22);
+            this.dates.TabIndex = 111;
             // 
-            // label12
+            // label5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label12.Location = new System.Drawing.Point(239, 384);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(110, 20);
-            this.label12.TabIndex = 69;
-            this.label12.Text = "Heure Debut ";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label5.Location = new System.Drawing.Point(877, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 20);
+            this.label5.TabIndex = 110;
+            this.label5.Text = "Matricule :";
             // 
-            // label13
+            // matricule
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(14, 383);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 20);
-            this.label13.TabIndex = 68;
-            this.label13.Text = "Jeudi :";
+            this.matricule.Culture = new System.Globalization.CultureInfo("en-US");
+            this.matricule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matricule.ForeColor = System.Drawing.Color.Black;
+            this.matricule.Location = new System.Drawing.Point(171, 156);
+            this.matricule.Name = "matricule";
+            this.matricule.Size = new System.Drawing.Size(223, 27);
+            this.matricule.TabIndex = 109;
             // 
-            // jeudiHD
+            // label6
             // 
-            this.jeudiHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jeudiHD.ForeColor = System.Drawing.Color.Black;
-            this.jeudiHD.Location = new System.Drawing.Point(124, 380);
-            this.jeudiHD.Name = "jeudiHD";
-            this.jeudiHD.Size = new System.Drawing.Size(109, 27);
-            this.jeudiHD.TabIndex = 67;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(43, 260);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.TabIndex = 108;
+            this.label6.Text = "Heures :";
             // 
-            // label15
+            // heures
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label15.Location = new System.Drawing.Point(504, 328);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(83, 20);
-            this.label15.TabIndex = 66;
-            this.label15.Text = "Heure Fin";
-            // 
-            // mercrediHF
-            // 
-            this.mercrediHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mercrediHF.ForeColor = System.Drawing.Color.Black;
-            this.mercrediHF.Location = new System.Drawing.Point(387, 325);
-            this.mercrediHF.Name = "mercrediHF";
-            this.mercrediHF.Size = new System.Drawing.Size(109, 27);
-            this.mercrediHF.TabIndex = 65;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label16.Location = new System.Drawing.Point(239, 328);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(110, 20);
-            this.label16.TabIndex = 64;
-            this.label16.Text = "Heure Debut ";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(14, 327);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(95, 20);
-            this.label17.TabIndex = 63;
-            this.label17.Text = "Mercredi :";
-            // 
-            // mercrediHD
-            // 
-            this.mercrediHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mercrediHD.ForeColor = System.Drawing.Color.Black;
-            this.mercrediHD.Location = new System.Drawing.Point(124, 324);
-            this.mercrediHD.Name = "mercrediHD";
-            this.mercrediHD.Size = new System.Drawing.Size(109, 27);
-            this.mercrediHD.TabIndex = 62;
+            this.heures.Culture = new System.Globalization.CultureInfo("en-US");
+            this.heures.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heures.ForeColor = System.Drawing.Color.Black;
+            this.heures.Location = new System.Drawing.Point(171, 257);
+            this.heures.Name = "heures";
+            this.heures.Size = new System.Drawing.Size(223, 27);
+            this.heures.TabIndex = 107;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.Location = new System.Drawing.Point(503, 444);
+            this.label18.Location = new System.Drawing.Point(400, 453);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 20);
-            this.label18.TabIndex = 76;
-            this.label18.Text = "Heure Fin";
+            this.label18.Size = new System.Drawing.Size(82, 20);
+            this.label18.TabIndex = 106;
+            this.label18.Text = "LibeleMat";
             // 
-            // vendrediHF
+            // LibeleMatiere
             // 
-            this.vendrediHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vendrediHF.ForeColor = System.Drawing.Color.Black;
-            this.vendrediHF.Location = new System.Drawing.Point(386, 441);
-            this.vendrediHF.Name = "vendrediHF";
-            this.vendrediHF.Size = new System.Drawing.Size(109, 27);
-            this.vendrediHF.TabIndex = 75;
+            this.LibeleMatiere.Culture = new System.Globalization.CultureInfo("en-US");
+            this.LibeleMatiere.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LibeleMatiere.ForeColor = System.Drawing.Color.Black;
+            this.LibeleMatiere.Location = new System.Drawing.Point(171, 449);
+            this.LibeleMatiere.Name = "LibeleMatiere";
+            this.LibeleMatiere.Size = new System.Drawing.Size(223, 27);
+            this.LibeleMatiere.TabIndex = 105;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label19.Location = new System.Drawing.Point(238, 444);
+            this.label19.Location = new System.Drawing.Point(400, 420);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(110, 20);
-            this.label19.TabIndex = 74;
-            this.label19.Text = "Heure Debut ";
+            this.label19.Size = new System.Drawing.Size(76, 20);
+            this.label19.TabIndex = 104;
+            this.label19.Text = "CodeMat";
             // 
-            // label20
+            // label23
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(13, 443);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(88, 20);
-            this.label20.TabIndex = 73;
-            this.label20.Text = "Vendedi :";
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(43, 436);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(84, 20);
+            this.label23.TabIndex = 103;
+            this.label23.Text = "Matiere :";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
-            // vendrediHD
+            // CodeMatiere
             // 
-            this.vendrediHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vendrediHD.ForeColor = System.Drawing.Color.Black;
-            this.vendrediHD.Location = new System.Drawing.Point(123, 440);
-            this.vendrediHD.Name = "vendrediHD";
-            this.vendrediHD.Size = new System.Drawing.Size(109, 27);
-            this.vendrediHD.TabIndex = 72;
+            this.CodeMatiere.Culture = new System.Globalization.CultureInfo("en-US");
+            this.CodeMatiere.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodeMatiere.ForeColor = System.Drawing.Color.Black;
+            this.CodeMatiere.Location = new System.Drawing.Point(171, 417);
+            this.CodeMatiere.Name = "CodeMatiere";
+            this.CodeMatiere.Size = new System.Drawing.Size(223, 27);
+            this.CodeMatiere.TabIndex = 102;
             // 
-            // label21
+            // label16
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label21.Location = new System.Drawing.Point(396, 140);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 20);
-            this.label21.TabIndex = 78;
-            this.label21.Text = "Semaine :";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label16.Location = new System.Drawing.Point(402, 355);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 20);
+            this.label16.TabIndex = 101;
+            this.label16.Text = "NomSalle";
             // 
-            // semaine
+            // NomSalle
             // 
-            this.semaine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.semaine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.semaine.ForeColor = System.Drawing.Color.Gray;
-            this.semaine.FormattingEnabled = true;
-            this.semaine.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.semaine.Location = new System.Drawing.Point(512, 135);
-            this.semaine.Name = "semaine";
-            this.semaine.Size = new System.Drawing.Size(82, 28);
-            this.semaine.TabIndex = 77;
-            this.semaine.Text = "1";
+            this.NomSalle.Culture = new System.Globalization.CultureInfo("en-US");
+            this.NomSalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomSalle.ForeColor = System.Drawing.Color.Black;
+            this.NomSalle.Location = new System.Drawing.Point(171, 353);
+            this.NomSalle.Name = "NomSalle";
+            this.NomSalle.Size = new System.Drawing.Size(223, 27);
+            this.NomSalle.TabIndex = 100;
             // 
-            // dataGridEmplois
+            // label15
             // 
-            this.dataGridEmplois.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridEmplois.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridEmplois.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmplois.Location = new System.Drawing.Point(720, 198);
-            this.dataGridEmplois.Name = "dataGridEmplois";
-            this.dataGridEmplois.RowTemplate.Height = 24;
-            this.dataGridEmplois.Size = new System.Drawing.Size(672, 523);
-            this.dataGridEmplois.TabIndex = 79;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label15.Location = new System.Drawing.Point(400, 322);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 20);
+            this.label15.TabIndex = 99;
+            this.label15.Text = "CodeSal";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
-            // label4
+            // label12
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(588, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(323, 36);
-            this.label4.TabIndex = 80;
-            this.label4.Text = "EMPLOIS DE TEMPS";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(43, 341);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 20);
+            this.label12.TabIndex = 98;
+            this.label12.Text = "Salle :";
             // 
-            // button1
+            // CodeSalle
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(20, 564);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 41);
-            this.button1.TabIndex = 85;
-            this.button1.Text = "Enregistrer";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CodeSalle.Culture = new System.Globalization.CultureInfo("en-US");
+            this.CodeSalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodeSalle.ForeColor = System.Drawing.Color.Black;
+            this.CodeSalle.Location = new System.Drawing.Point(171, 320);
+            this.CodeSalle.Name = "CodeSalle";
+            this.CodeSalle.Size = new System.Drawing.Size(223, 27);
+            this.CodeSalle.TabIndex = 97;
             // 
-            // button3
+            // label22
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(19, 643);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(183, 41);
-            this.button3.TabIndex = 84;
-            this.button3.Text = "Supprimer";
-            this.button3.UseVisualStyleBackColor = false;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label22.Location = new System.Drawing.Point(626, 104);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(84, 20);
+            this.label22.TabIndex = 92;
+            this.label22.Text = "Semaine :";
             // 
-            // button2
+            // button6
             // 
-            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(218, 564);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 41);
-            this.button2.TabIndex = 83;
-            this.button2.Text = "Annuler";
-            this.button2.UseVisualStyleBackColor = false;
+            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(1256, 99);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(122, 27);
+            this.button6.TabIndex = 90;
+            this.button6.Text = "AFFICHER";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // recherche
             // 
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(412, 564);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(184, 41);
-            this.button5.TabIndex = 82;
-            this.button5.Text = "Modifier";
-            this.button5.UseVisualStyleBackColor = false;
+            this.recherche.Culture = new System.Globalization.CultureInfo("en-US");
+            this.recherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recherche.ForeColor = System.Drawing.Color.Black;
+            this.recherche.Location = new System.Drawing.Point(976, 100);
+            this.recherche.Name = "recherche";
+            this.recherche.Size = new System.Drawing.Size(264, 27);
+            this.recherche.TabIndex = 89;
             // 
             // button4
             // 
@@ -565,60 +516,112 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(223, 643);
+            this.button4.Location = new System.Drawing.Point(234, 611);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(373, 41);
             this.button4.TabIndex = 86;
             this.button4.Text = "Suppression en cascade";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // recherche
+            // button1
             // 
-            this.recherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recherche.ForeColor = System.Drawing.Color.Black;
-            this.recherche.Location = new System.Drawing.Point(983, 167);
-            this.recherche.Name = "recherche";
-            this.recherche.Size = new System.Drawing.Size(264, 27);
-            this.recherche.TabIndex = 89;
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(31, 532);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 41);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Enregistrer";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button6
+            // button3
             // 
-            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(1263, 166);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(122, 27);
-            this.button6.TabIndex = 90;
-            this.button6.Text = "Rechercher";
-            this.button6.UseVisualStyleBackColor = false;
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(30, 611);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(183, 41);
+            this.button3.TabIndex = 84;
+            this.button3.Text = "Supprimer";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label22
+            // button2
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label22.Location = new System.Drawing.Point(719, 170);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(84, 20);
-            this.label22.TabIndex = 92;
-            this.label22.Text = "Semaine :";
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(229, 532);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(181, 41);
+            this.button2.TabIndex = 83;
+            this.button2.Text = "Annuler";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // selectsemeaine
+            // button5
             // 
-            this.selectsemeaine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.selectsemeaine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectsemeaine.ForeColor = System.Drawing.Color.Gray;
-            this.selectsemeaine.FormattingEnabled = true;
-            this.selectsemeaine.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.selectsemeaine.Location = new System.Drawing.Point(835, 165);
-            this.selectsemeaine.Name = "selectsemeaine";
-            this.selectsemeaine.Size = new System.Drawing.Size(82, 28);
-            this.selectsemeaine.TabIndex = 91;
-            this.selectsemeaine.Text = "1";
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(423, 532);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(184, 41);
+            this.button5.TabIndex = 82;
+            this.button5.Text = "Modifier";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label4.Location = new System.Drawing.Point(556, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(323, 36);
+            this.label4.TabIndex = 80;
+            this.label4.Text = "EMPLOIS DE TEMPS";
+            // 
+            // dataGridEmplois
+            // 
+            this.dataGridEmplois.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridEmplois.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridEmplois.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEmplois.Location = new System.Drawing.Point(630, 131);
+            this.dataGridEmplois.Name = "dataGridEmplois";
+            this.dataGridEmplois.RowTemplate.Height = 24;
+            this.dataGridEmplois.Size = new System.Drawing.Size(755, 521);
+            this.dataGridEmplois.TabIndex = 79;
+            this.dataGridEmplois.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmplois_CellContentClick);
+            // 
+            // jours
+            // 
+            this.jours.AutoSize = true;
+            this.jours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jours.Location = new System.Drawing.Point(43, 209);
+            this.jours.Name = "jours";
+            this.jours.Size = new System.Drawing.Size(58, 20);
+            this.jours.TabIndex = 51;
+            this.jours.Text = "Jour :";
+            // 
+            // jour
+            // 
+            this.jour.Culture = new System.Globalization.CultureInfo("en-US");
+            this.jour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jour.ForeColor = System.Drawing.Color.Black;
+            this.jour.Location = new System.Drawing.Point(171, 206);
+            this.jour.Name = "jour";
+            this.jour.Size = new System.Drawing.Size(223, 27);
+            this.jour.TabIndex = 48;
             // 
             // Emplois
             // 
@@ -656,35 +659,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox vendrediHF;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.MaskedTextBox vendrediHD;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox jeudiHF;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.MaskedTextBox jeudiHD;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.MaskedTextBox mercrediHF;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.MaskedTextBox mercrediHD;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox mardiHF;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox mardiHD;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox lundiHF;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox matricule;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.MaskedTextBox lundiHD;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox semaine;
+        private System.Windows.Forms.Label jours;
+        private System.Windows.Forms.MaskedTextBox jour;
         private System.Windows.Forms.DataGridView dataGridEmplois;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
@@ -695,7 +671,32 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.MaskedTextBox recherche;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox selectsemeaine;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.MaskedTextBox LibeleMatiere;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.MaskedTextBox CodeMatiere;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MaskedTextBox NomSalle;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox CodeSalle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox heures;
+        private System.Windows.Forms.MaskedTextBox matricule;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dates;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox semaineRecherche;
+        private System.Windows.Forms.MaskedTextBox semaine;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button13;
 
     }
 }
