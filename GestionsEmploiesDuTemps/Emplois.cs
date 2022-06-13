@@ -16,6 +16,12 @@ namespace GestionsEmploiesDuTemps
         public Emplois()
         {
             InitializeComponent();
+            afficheSalle();
+            afficheMatiere();
+            afficheMatricule();
+            afficheSemaine();
+            refresh();
+           
         }
 
         public void refresh()
@@ -25,7 +31,7 @@ namespace GestionsEmploiesDuTemps
             connexion.Open();
             try
             {
-                string requete = "SELECT IdSemC,IdEnsC,IdJourC,Heures,Dates,CodeMatC,LibMat,CodeSalC,NomSalle FROM cours LEFT JOIN salle ON salle.CodeSal = cours.CodeSalC LEFT JOIN enseignant ON enseignant.IdEns = cours.IdEnsC LEFT JOIN matiere ON matiere.CodeMat = cours.CodeMatC LEFT JOIN jour ON jour.IdJour = cours.IdJourC";
+                string requete = "SELECT IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC from cours";
                 MySqlCommand cmmd = new MySqlCommand(requete, connexion);
                 MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
                 DataTable dt = new DataTable();
@@ -83,9 +89,51 @@ namespace GestionsEmploiesDuTemps
         private void button1_Click(object sender, EventArgs e)
         {
         //Enregistrer
-            String a="11", b="13", r;
-            r = a+"H-" + b+"H";
-            MessageBox.Show(r);
+            String semaine   = comboBox4.Text;
+            String matricule = comboBox3.Text;
+            String date = dates.Text;
+            String heure = heures.Text;
+            String CodeSalle = comboBox2.Text;
+            String salle = NomSalle.Text;
+            String CodeMat = comboBox1.Text;
+            String libelleMat = LibeleMatiere.Text;
+            comboBox3.Focus();
+
+            if (semaine != "" & salle != "" & date != "" & CodeSalle != "" & matricule != "")
+            {
+                MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+
+                try
+                {
+                    connexion.Open();
+                    // La commande Insert.
+                    string sql = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal)";
+
+                    MySqlCommand cmd = connexion.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    cmd.CommandText = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal) ";
+
+                    cmd.Parameters.AddWithValue("@heures", heures.Text);
+                    cmd.Parameters.AddWithValue("@dates", dates.Text);
+                    cmd.Parameters.AddWithValue("@idsemaine", comboBox4.Text);
+                    cmd.Parameters.AddWithValue("@idEnseignant", comboBox3.Text);
+                    cmd.Parameters.AddWithValue("@matCours", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@CodeSal", comboBox2.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Ajouter Avec Succes ! ", "Reservation Cours", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refresh();
+                    connexion.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Echec De Connexion. ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else { MessageBox.Show(" Echec ! Champ(s) Vide(s). ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
 
@@ -101,22 +149,50 @@ namespace GestionsEmploiesDuTemps
             {
                 dataGridEmplois.CurrentRow.Selected = true;
 
-                semaine.Text = dataGridEmplois.Rows[e.RowIndex].Cells[0].Value.ToString();
-                dates.Text = dataGridEmplois.Rows[e.RowIndex].Cells[4].Value.ToString();
-                matricule.Text = dataGridEmplois.Rows[e.RowIndex].Cells[1].Value.ToString();
-                jour.Text = dataGridEmplois.Rows[e.RowIndex].Cells[2].Value.ToString();
-                heures.Text = dataGridEmplois.Rows[e.RowIndex].Cells[3].Value.ToString();
-                CodeSalle.Text = dataGridEmplois.Rows[e.RowIndex].Cells[7].Value.ToString();
-                CodeMatiere.Text = dataGridEmplois.Rows[e.RowIndex].Cells[5].Value.ToString();
-                NomSalle.Text = dataGridEmplois.Rows[e.RowIndex].Cells[8].Value.ToString();
-                LibeleMatiere.Text = dataGridEmplois.Rows[e.RowIndex].Cells[6].Value.ToString();
+                comboBox4.Text = dataGridEmplois.Rows[e.RowIndex].Cells[0].Value.ToString();
+                dates.Text = dataGridEmplois.Rows[e.RowIndex].Cells[3].Value.ToString();
+                comboBox3.Text = dataGridEmplois.Rows[e.RowIndex].Cells[1].Value.ToString();
+                heures.Text = dataGridEmplois.Rows[e.RowIndex].Cells[2].Value.ToString();
+                comboBox2.Text = dataGridEmplois.Rows[e.RowIndex].Cells[5].Value.ToString();
+                comboBox1.Text = dataGridEmplois.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
         //Actualiser
-                refresh(); 
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            string recherch = recherche.Text;
+            string semaineRe = semaineRecherche.Text;
+
+            if (recherch == "" && semaineRe == "")
+            {
+                refresh();
+            }
+            if(recherch != "" && semaineRe == "") {
+
+                string search = "select  IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC from cours where  IdEnsC='" + recherche.Text + "'; ";
+
+                MySqlCommand cmmd = new MySqlCommand(search, connexion);
+                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
+                DataTable dt = new DataTable();
+                dt.Clear();
+                data.Fill(dt);
+                dataGridEmplois.DataSource = dt;
+            
+            }
+            if (recherch != "" && semaineRe != "")
+            {// "SELECT IdSemC,IdEnsC,Heures,Dates,CodeMatC,LibMat,CodeSalC,NomSalle from cours";
+                string search = "select  IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC from cours where  IdEnsC='" + recherche.Text + "' and IdSemC ='" + semaineRecherche.Text + "';";
+
+                MySqlCommand cmmd = new MySqlCommand(search, connexion);
+                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
+                DataTable dt = new DataTable();
+                dt.Clear();
+                data.Fill(dt);
+                dataGridEmplois.DataSource = dt;
+            
+            }
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -127,16 +203,16 @@ namespace GestionsEmploiesDuTemps
         private void button2_Click(object sender, EventArgs e)
         {
         //Annuler
-            semaine.Text = "";
-            matricule.Text = "";
+            comboBox4.Text = "";
+            comboBox3.Text = "";
             dates.Text = "";
-            jour.Text = "";
+            
             heures.Text = "";
-            CodeSalle.Text =  "";
-            CodeMatiere.Text = "";
+            comboBox2.Text = "";
+            comboBox1.Text = "";
             NomSalle.Text = "";
             LibeleMatiere.Text = "";
-            matricule.Focus();
+            comboBox3.Focus();
         }
 
         private void label23_Click(object sender, EventArgs e)
@@ -148,17 +224,145 @@ namespace GestionsEmploiesDuTemps
         {
         //Modifier
 
+            String semaine = comboBox4.Text;
+            String matricule = comboBox3.Text;
+            String date = dates.Text;
+            String heure = heures.Text;
+            String CodeSalle = comboBox2.Text;
+            String salle = NomSalle.Text;
+            String CodeMat = comboBox1.Text;
+            String libelleMat = LibeleMatiere.Text;
+            comboBox3.Focus();
+
+            if (matricule == "" |semaine == "" | heure == "" | CodeMat == "" | date == "") { MessageBox.Show(" Impossible de modifier. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                try
+                {
+                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                    connexion.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connexion; //(IdEns, NomEns, PrenomEns , SexeEns , AgeEns)
+                    cmd.CommandText = String.Format("update cours set Heures='{0}',Dates='{1}',IdSemC='{2}',CodeMatC='{3}',CodeSalC='{4}' where IdEnsC='{5}'", heures.Text, dates.Text, comboBox4.Text, comboBox1.Text, comboBox3.Text);
+                  
+                    int r = cmd.ExecuteNonQuery();
+
+                    if (r != 0)
+                    {
+                        MessageBox.Show("Cours a ete Bien Modifié", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        refresh();
+                        connexion.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(" Echec de Modifier ", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
         //Supprimer
+            String semaine = comboBox4.Text;
+            String matricule = comboBox3.Text;
+            String date = dates.Text;
+            String heure = heures.Text;
+            String CodeSalle = comboBox2.Text;
+            String salle = NomSalle.Text;
+            String CodeMat = comboBox1.Text;
+            String libelleMat = LibeleMatiere.Text;
+            comboBox3.Focus();
 
+            if (matricule == "" | semaine == "" | salle == "" | CodeSalle == "" | date == "") { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                try
+                {
+                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                    connexion.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connexion;
+                    cmd.CommandText = String.Format("delete from cours where IdEnsC='{0}'", comboBox3.Text);
+
+                    int r = cmd.ExecuteNonQuery();
+                    if (r != 0)
+                    {
+                        MessageBox.Show("Cours a ete Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        refresh();
+                            comboBox4.Text = "";
+                            comboBox3.Text = "";
+                            dates.Text = "";
+            
+                            heures.Text = "";
+                            comboBox2.Text = "";
+                            comboBox1.Text = "";
+                            NomSalle.Text = "";
+                            LibeleMatiere.Text = "";
+                            comboBox3.Focus();
+
+                        connexion.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
         //Supprimer en cascade
+            String semaine = comboBox4.Text;
+            String matricule = comboBox3.Text;
+            String date = dates.Text;
+            String heure = heures.Text;
+            String CodeSalle = comboBox2.Text;
+            String salle = NomSalle.Text;
+            String CodeMat = comboBox1.Text;
+            String libelleMat = LibeleMatiere.Text;
+            comboBox3.Focus();
+
+            if (matricule == "" | semaine == "" | salle == "" | CodeSalle == "" | date == "") { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                try
+                {
+                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                    connexion.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connexion;
+                    cmd.CommandText = String.Format("delete from cours where IdEnsC='{0}' and idSemC = '{1}' ", comboBox3.Text,comboBox4.Text);
+
+                    int r = cmd.ExecuteNonQuery();
+                    if (r != 0)
+                    {
+                        MessageBox.Show("Cours a ete  Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        refresh();
+                        comboBox4.Text = "";
+                        comboBox3.Text = "";
+                        dates.Text = "";
+
+                        heures.Text = "";
+                        comboBox2.Text = "";
+                        comboBox1.Text = "";
+                        NomSalle.Text = "";
+                        LibeleMatiere.Text = "";
+                        comboBox3.Focus();
+
+                        connexion.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
         }
 
@@ -196,6 +400,175 @@ namespace GestionsEmploiesDuTemps
         {
             Semaine form = new Semaine();
             form.ShowDialog();
+        }
+
+        private void options_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        void afficheSalle(){
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from salle";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("CodeSal");
+                    comboBox2.Items.Add(nom);
+                }
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        
+        }
+        void afficheMatiere()
+        {
+           
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from matiere";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("CodeMat");
+                    comboBox1.Items.Add(nom);
+                     
+                   
+                }
+                
+
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
+        }
+        void afficheMatricule()
+        {
+           
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from enseignant ";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("IdEns");
+                    comboBox3.Items.Add(nom);
+
+
+                }
+
+
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
+        }
+        void afficheSemaine()
+        {
+
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from semaine ";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("NumSem");
+                    comboBox4.Items.Add(nom);
+
+
+                }
+
+
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
+        }
+       
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from matiere where CodeMat='" + comboBox1.Text + "'; ";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("LibMat");
+                    LibeleMatiere.Text = nom;
+                }
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+            connexion.Open();
+            try
+            {
+                string requete = "select * from salle where CodeSal='" + comboBox2.Text + "'; ";
+                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
+                MySqlDataReader myReader;
+
+                myReader = cmmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string nom = myReader.GetString("NomSalle");
+                    NomSalle.Text = nom;
+                }
+                connexion.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void dates_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
