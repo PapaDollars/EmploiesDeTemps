@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 07 juin 2022 à 18:15
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 13 juin 2022 à 21:46
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,32 +27,24 @@ SET time_zone = "+00:00";
 -- Structure de la table `cours`
 --
 
-DROP TABLE IF EXISTS `cours`;
-CREATE TABLE IF NOT EXISTS `cours` (
-  `IdCours` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cours` (
+  `IdCours` int(11) NOT NULL,
   `Heures` varchar(10) NOT NULL,
-  `Dates` date NOT NULL,
+  `Dates` varchar(50) NOT NULL,
   `IdSemC` int(11) NOT NULL,
-  `IdJourC` varchar(10) NOT NULL,
   `IdEnsC` varchar(10) NOT NULL,
   `CodeMatC` varchar(10) NOT NULL,
-  `CodeSalC` varchar(10) NOT NULL,
-  PRIMARY KEY (`IdCours`),
-  KEY `IdSemC` (`IdSemC`),
-  KEY `IdJourC` (`IdJourC`),
-  KEY `IdEnsC` (`IdEnsC`),
-  KEY `CodeMatC` (`CodeMatC`),
-  KEY `CodeSalC` (`CodeSalC`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `CodeSalC` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cours`
 --
 
-INSERT INTO `cours` (`IdCours`, `Heures`, `Dates`, `IdSemC`, `IdJourC`, `IdEnsC`, `CodeMatC`, `CodeSalC`) VALUES
-(1, '11H-13H', '2022-06-01', 1, 'Lundi', '00v0000', 'info310', '250'),
-(2, '09H-11H', '2022-06-30', 1, 'Jeudi', '00v0000', 'info104', '350'),
-(3, '16H-20H', '2022-06-20', 1, 'Vendredi', '00p0000', 'info211', '250');
+INSERT INTO `cours` (`IdCours`, `Heures`, `Dates`, `IdSemC`, `IdEnsC`, `CodeMatC`, `CodeSalC`) VALUES
+(7, '16h-19h', 'vendredi 17 juin 2022', 20, '12k0000', 'ICT2022', '250'),
+(11, '12h-14h', 'vendredi 17 juin 2022', 2, '00F000', 'info104', '250'),
+(10, '12h-14h', 'lundi 13 juin 2022', 1, '11p0000', 'info104', '250');
 
 -- --------------------------------------------------------
 
@@ -60,14 +52,12 @@ INSERT INTO `cours` (`IdCours`, `Heures`, `Dates`, `IdSemC`, `IdJourC`, `IdEnsC`
 -- Structure de la table `enseignant`
 --
 
-DROP TABLE IF EXISTS `enseignant`;
-CREATE TABLE IF NOT EXISTS `enseignant` (
+CREATE TABLE `enseignant` (
   `IdEns` varchar(10) NOT NULL,
   `NomEns` varchar(25) NOT NULL,
   `PrenomEns` varchar(25) NOT NULL,
   `SexeEns` varchar(10) NOT NULL,
-  `AgeEns` int(3) NOT NULL,
-  PRIMARY KEY (`IdEns`)
+  `AgeEns` int(3) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -78,28 +68,8 @@ INSERT INTO `enseignant` (`IdEns`, `NomEns`, `PrenomEns`, `SexeEns`, `AgeEns`) V
 ('00p0000', 'db', 'dollars', 'masculin', 16),
 ('00v0000', 'db22', 'dollars', 'masculin', 24),
 ('12k0000', 'fr', 'fanta', 'feminine', 45),
-('11p0000', 'db3', 'danielle', 'feminine', 32);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `jour`
---
-
-DROP TABLE IF EXISTS `jour`;
-CREATE TABLE IF NOT EXISTS `jour` (
-  `NumJour` int(10) NOT NULL AUTO_INCREMENT,
-  `IdJour` varchar(10) NOT NULL,
-  PRIMARY KEY (`NumJour`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `jour`
---
-
-INSERT INTO `jour` (`NumJour`, `IdJour`) VALUES
-(1, 'Lundi'),
-(2, 'Jeudi');
+('11p0000', 'db3', 'danielle', 'feminine', 32),
+('00F000', 'Franck', 'judes', 'Masculin', 36);
 
 -- --------------------------------------------------------
 
@@ -107,11 +77,9 @@ INSERT INTO `jour` (`NumJour`, `IdJour`) VALUES
 -- Structure de la table `matiere`
 --
 
-DROP TABLE IF EXISTS `matiere`;
-CREATE TABLE IF NOT EXISTS `matiere` (
+CREATE TABLE `matiere` (
   `CodeMat` varchar(10) NOT NULL,
-  `LibMat` varchar(25) NOT NULL,
-  PRIMARY KEY (`CodeMat`)
+  `LibMat` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -121,7 +89,8 @@ CREATE TABLE IF NOT EXISTS `matiere` (
 INSERT INTO `matiere` (`CodeMat`, `LibMat`) VALUES
 ('info210', 'Base de Donnee'),
 ('info104', 'architecture'),
-('info211', 'systeme');
+('info211', 'systeme'),
+('ICT2022', 'Dev Mobile');
 
 -- --------------------------------------------------------
 
@@ -129,11 +98,9 @@ INSERT INTO `matiere` (`CodeMat`, `LibMat`) VALUES
 -- Structure de la table `salle`
 --
 
-DROP TABLE IF EXISTS `salle`;
-CREATE TABLE IF NOT EXISTS `salle` (
+CREATE TABLE `salle` (
   `CodeSal` int(10) NOT NULL,
-  `NomSalle` varchar(25) NOT NULL,
-  PRIMARY KEY (`CodeSal`)
+  `NomSalle` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -142,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
 
 INSERT INTO `salle` (`CodeSal`, `NomSalle`) VALUES
 (350, 'Amphi'),
-(250, 'Amphi');
+(250, 'Amphi1020');
 
 -- --------------------------------------------------------
 
@@ -150,16 +117,12 @@ INSERT INTO `salle` (`CodeSal`, `NomSalle`) VALUES
 -- Structure de la table `semaine`
 --
 
-DROP TABLE IF EXISTS `semaine`;
-CREATE TABLE IF NOT EXISTS `semaine` (
-  `NumSem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `semaine` (
+  `NumSem` int(11) NOT NULL,
   `IdSem` int(11) NOT NULL,
   `IdJour` varchar(10) NOT NULL,
-  `Heures` varchar(10) NOT NULL,
-  PRIMARY KEY (`NumSem`),
-  KEY `IdJour` (`IdJour`),
-  KEY `Heures` (`Heures`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `Heures` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `semaine`
@@ -167,9 +130,65 @@ CREATE TABLE IF NOT EXISTS `semaine` (
 
 INSERT INTO `semaine` (`NumSem`, `IdSem`, `IdJour`, `Heures`) VALUES
 (1, 1, 'Lundi', '11H-13H'),
-(2, 1, 'Jeudi', '09H-11H'),
-(3, 2, 'Lundi', '16H-20H'),
-(4, 2, 'Lundi', '11H-13H');
+(20, 6, 'samedi', '12h-14h'),
+(11, 10, '22', '12h'),
+(2, 20, '2', '12h-14h');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `cours`
+--
+ALTER TABLE `cours`
+  ADD PRIMARY KEY (`IdCours`),
+  ADD KEY `IdSemC` (`IdSemC`),
+  ADD KEY `IdEnsC` (`IdEnsC`),
+  ADD KEY `CodeMatC` (`CodeMatC`),
+  ADD KEY `CodeSalC` (`CodeSalC`);
+
+--
+-- Index pour la table `enseignant`
+--
+ALTER TABLE `enseignant`
+  ADD PRIMARY KEY (`IdEns`);
+
+--
+-- Index pour la table `matiere`
+--
+ALTER TABLE `matiere`
+  ADD PRIMARY KEY (`CodeMat`);
+
+--
+-- Index pour la table `salle`
+--
+ALTER TABLE `salle`
+  ADD PRIMARY KEY (`CodeSal`);
+
+--
+-- Index pour la table `semaine`
+--
+ALTER TABLE `semaine`
+  ADD PRIMARY KEY (`NumSem`),
+  ADD KEY `IdJour` (`IdJour`),
+  ADD KEY `Heures` (`Heures`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `cours`
+--
+ALTER TABLE `cours`
+  MODIFY `IdCours` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT pour la table `semaine`
+--
+ALTER TABLE `semaine`
+  MODIFY `NumSem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

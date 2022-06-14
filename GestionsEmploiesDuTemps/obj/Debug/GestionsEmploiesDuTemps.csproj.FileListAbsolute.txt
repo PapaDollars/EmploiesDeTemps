@@ -41,3 +41,6 @@ C:\Users\Biramah Iram\Downloads\EmploiesDeTemps-main\EmploiesDeTemps-main\Gestio
 C:\Users\Biramah Iram\Downloads\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Salle.resources
 C:\Users\Biramah Iram\Downloads\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Semaine.resources
 C:\Users\Biramah Iram\Downloads\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.csproj.GenerateResource.Cache
+E:\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\bin\Debug\GestionsEmploiesDuTemps.exe.config
+E:\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.exe
+E:\EmploiesDeTemps-main\EmploiesDeTemps-main\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.pdb
