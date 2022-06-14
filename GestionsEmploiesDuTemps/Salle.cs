@@ -25,7 +25,10 @@ namespace GestionsEmploiesDuTemps
 
         private void label6_Click(object sender, EventArgs e)
         {
+            Emplois form = new Emplois();
+            form.ShowDialog();
             this.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,8 +59,9 @@ namespace GestionsEmploiesDuTemps
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show(" Matiere Ajouter Avec Succes ! ", "Ajout Matiere", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                     connexion.Close();
+                   
                 }
                 catch
                 {
@@ -69,6 +73,7 @@ namespace GestionsEmploiesDuTemps
             {
                 MessageBox.Show(" Echec ! Champ(s) Vide(s). ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -152,6 +157,11 @@ namespace GestionsEmploiesDuTemps
         {
             CodeSalle.Text = "";
             NomSalle.Text = "";
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

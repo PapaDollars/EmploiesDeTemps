@@ -25,6 +25,8 @@ namespace GestionsEmploiesDuTemps
 
         private void label6_Click(object sender, EventArgs e)
         {
+            Emplois form = new Emplois();
+            form.ShowDialog();
             this.Close();
         }
 

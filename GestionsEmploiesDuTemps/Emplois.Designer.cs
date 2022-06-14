@@ -35,13 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.heures = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button13 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.semaineRecherche = new System.Windows.Forms.MaskedTextBox();
@@ -69,7 +69,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridEmplois = new System.Windows.Forms.DataGridView();
-            this.heures = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -156,7 +155,6 @@
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.semaineRecherche);
@@ -191,11 +189,30 @@
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // heures
+            // 
+            this.heures.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.heures.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heures.ForeColor = System.Drawing.Color.Black;
+            this.heures.FormattingEnabled = true;
+            this.heures.Items.AddRange(new object[] {
+            "07H30-09H30",
+            "09H45-11H45",
+            "12H00-14H00",
+            "14H45-16H15",
+            "16H30-18H30",
+            "18H45-20H45",
+            "21H00-23H00"});
+            this.heures.Location = new System.Drawing.Point(169, 226);
+            this.heures.Name = "heures";
+            this.heures.Size = new System.Drawing.Size(225, 28);
+            this.heures.TabIndex = 128;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(169, 384);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(221, 24);
             this.comboBox1.TabIndex = 127;
@@ -205,7 +222,7 @@
             // 
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(171, 73);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(221, 24);
             this.comboBox4.TabIndex = 127;
@@ -215,7 +232,7 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(172, 162);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(221, 24);
             this.comboBox3.TabIndex = 127;
@@ -225,7 +242,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(171, 287);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(221, 24);
             this.comboBox2.TabIndex = 127;
@@ -252,29 +269,14 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(477, 682);
+            this.button11.Location = new System.Drawing.Point(440, 682);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(130, 33);
+            this.button11.Size = new System.Drawing.Size(167, 33);
             this.button11.TabIndex = 123;
             this.button11.Text = "Semaine";
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Indigo;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(331, 682);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(119, 33);
-            this.button10.TabIndex = 122;
-            this.button10.Text = "Date";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -282,10 +284,10 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(176, 682);
+            this.button9.Location = new System.Drawing.Point(231, 682);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(124, 33);
+            this.button9.Size = new System.Drawing.Size(165, 33);
             this.button9.TabIndex = 121;
             this.button9.Text = "Matiere";
             this.button9.UseVisualStyleBackColor = false;
@@ -300,7 +302,7 @@
             this.button8.Location = new System.Drawing.Point(29, 682);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(122, 33);
+            this.button8.Size = new System.Drawing.Size(164, 33);
             this.button8.TabIndex = 120;
             this.button8.Text = "Salle";
             this.button8.UseVisualStyleBackColor = false;
@@ -595,25 +597,6 @@
             this.dataGridEmplois.TabIndex = 79;
             this.dataGridEmplois.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmplois_CellContentClick);
             // 
-            // heures
-            // 
-            this.heures.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.heures.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heures.ForeColor = System.Drawing.Color.Black;
-            this.heures.FormattingEnabled = true;
-            this.heures.Items.AddRange(new object[] {
-            "07H30-09H30",
-            "09H45-11H45",
-            "12H00-14H00",
-            "14H45-16H15",
-            "16H30-18H30",
-            "18H45-20H45",
-            "21H00-23H00"});
-            this.heures.Location = new System.Drawing.Point(169, 226);
-            this.heures.Name = "heures";
-            this.heures.Size = new System.Drawing.Size(225, 28);
-            this.heures.TabIndex = 128;
-            // 
             // Emplois
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -677,7 +660,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox semaineRecherche;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button13;

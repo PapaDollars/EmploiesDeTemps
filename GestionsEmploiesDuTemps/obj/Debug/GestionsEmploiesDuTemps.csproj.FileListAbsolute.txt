@@ -16,7 +16,6 @@ C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTem
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\bin\Debug\MySql.Web.dll
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.EmploisTemps.resources
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Cours.resources
-C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Jour.resources
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Matiere.resources
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Salle.resources
 C:\Users\MSI Papa-dollars\Documents\GitHub\EmploiesDeTemps\GestionsEmploiesDuTemps\obj\Debug\GestionsEmploiesDuTemps.Semaine.resources

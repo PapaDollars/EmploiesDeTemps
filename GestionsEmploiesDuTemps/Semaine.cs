@@ -25,6 +25,8 @@ namespace GestionsEmploiesDuTemps
 
         private void label6_Click(object sender, EventArgs e)
         {
+            Emplois form = new Emplois();
+            form.ShowDialog();
             this.Close();
         }
 
@@ -32,12 +34,8 @@ namespace GestionsEmploiesDuTemps
         {
             //Enregistrer
             String idSemaine = NomSalle.Text;
-            String numeroSemaine = CodeSalle.Text;
-            String heur = heure.Text;
-            String jour = idjour.Text;
 
-
-            if (idSemaine != "" & numeroSemaine != "" & jour != "" & heur != "")
+            if (idSemaine != "" )
             {
                 MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
 
@@ -45,19 +43,15 @@ namespace GestionsEmploiesDuTemps
                 {
                     connexion.Open();
                     // La commande Insert.
-                    string sql = "INSERT INTO semaine (NumSem, IdSem, IdJour, Heures) VALUES (@NumSem,@IdSem,@IdJour,@Heures)";
+                    string sql = "INSERT INTO semaine (IdSem) VALUES (@IdSem)";
 
                     MySqlCommand cmd = connexion.CreateCommand();
                     cmd.CommandText = sql;
 
-                    cmd.CommandText =" INSERT INTO semaine (NumSem, IdSem, IdJour, Heures) VALUES (@NumSem,@IdSem,@IdJour,@Heures) ";
+                    cmd.CommandText =" INSERT INTO semaine (IdSem) VALUES (@IdSem) ";
 
-                    cmd.Parameters.AddWithValue("@NumSem", CodeSalle.Text);
                     cmd.Parameters.AddWithValue("@IdSem", NomSalle.Text);
-                    cmd.Parameters.AddWithValue("@IdJour", idjour.Text);
-                    cmd.Parameters.AddWithValue("@Heures", heure.Text);
                    
-
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show(" Semaine Ajouter Avec Succes ! ", "Ajout Enseignant", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -81,22 +75,15 @@ namespace GestionsEmploiesDuTemps
         private void button2_Click(object sender, EventArgs e)
         {
             NomSalle.Text = "";
-            CodeSalle.Text = "";
-            idjour.Text = "";
-            heure.Text = "";
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             //supprimer
             String idSemaine = NomSalle.Text;
-            String numeroSemaine = CodeSalle.Text;
-            String heur = heure.Text;
-            String jour = idjour.Text;
 
 
-            if (idSemaine == "" | numeroSemaine == "" | heur == "" | jour == "") { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            if (idSemaine == "" ) { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
                 try
@@ -114,9 +101,6 @@ namespace GestionsEmploiesDuTemps
                         MessageBox.Show("Semaine a ete Bien Supprimé", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         NomSalle.Text = "";
-                        CodeSalle.Text = "";
-                        idjour.Text = "";
-                        heure.Text = "";
                         connexion.Close();
                     }
                     else {
@@ -134,11 +118,8 @@ namespace GestionsEmploiesDuTemps
         {
             //modifier
             String idSemaine = NomSalle.Text;
-            String numeroSemaine = CodeSalle.Text;
-            String heur = heure.Text;
-            String jour = idjour.Text;
 
-            if (idSemaine == "" | numeroSemaine == "" | heur == "" | jour == "") { MessageBox.Show(" Impossible de modifier. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            if (idSemaine == "") { MessageBox.Show(" Impossible de modifier. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
                 try
@@ -147,8 +128,8 @@ namespace GestionsEmploiesDuTemps
                     connexion.Open();
 
                     MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connexion; //(IdEns, NomEns, PrenomEns , SexeEns , AgeEns)
-                    cmd.CommandText = String.Format("update semaine set IdSem='{0}',IdJour='{1}', Heures='{2}' where  IdSem='{3}'", CodeSalle.Text, heure.Text, idjour.Text, NomSalle.Text);
+                    cmd.Connection = connexion; 
+                    cmd.CommandText = String.Format("update semaine set IdSem='{0}' where  IdSem='{0}'", NomSalle.Text);
                     int r = cmd.ExecuteNonQuery();
 
                     if (r != 0)

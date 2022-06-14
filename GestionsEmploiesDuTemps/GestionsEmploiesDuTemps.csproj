@@ -86,12 +86,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jour.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Jour.Designer.cs">
-      <DependentUpon>Jour.cs</DependentUpon>
-    </Compile>
     <Compile Include="Matiere.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Jour.resx">
-      <DependentUpon>Jour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Matiere.resx">
       <DependentUpon>Matiere.cs</DependentUpon>
