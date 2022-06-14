@@ -88,13 +88,11 @@ namespace GestionsEmploiesDuTemps
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
             //Enregistrer
             String semaine   = comboBox4.Text;
             String matricule = comboBox3.Text;
             String date = dates.Text;
-            String heure = heures.Text;
+            String heure = heures.GetItemText(heures.SelectedItem);
             String CodeSalle = comboBox2.Text;
             String salle = NomSalle.Text;
             String CodeMat = comboBox1.Text;
@@ -108,64 +106,73 @@ namespace GestionsEmploiesDuTemps
 
              if (semaine != "" & salle != "" & date != "" & CodeSalle != "" & matricule != "")
              {
-
-                 MySqlConnection con = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-                 con.Open();
-
-                 string search = "select Heures,Dates,IdSemC,CodeSalC from cours";
-
-                 MySqlCommand cmmd = new MySqlCommand(search, con);
-                 MySqlDataReader myReader;
-                 myReader = cmmd.ExecuteReader();
-                 while (myReader.Read())
+                 if (heure == "07H30-09H30" | heure == "09H45-11H45" | heure == "12H00-14H00" | heure == "14H45-16H15" | heure == "16H30-18H30" | heure == "18H45-20H45" | heure == "21H00-23H00")
                  {
-                     heu = myReader.GetString("Heures");
-                     dat = myReader.GetString("Dates");
-                     semain = myReader.GetString("IdsemC");
-                     codesal = myReader.GetString("CodeSalC");
-                     if (semain == semaine & heu == heure & date == dat & codesal == CodeSalle)
+                     MySqlConnection con = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                     con.Open();
+
+                     string search = "select Heures,Dates,IdSemC,CodeSalC from cours";
+
+                     MySqlCommand cmmd = new MySqlCommand(search, con);
+                     MySqlDataReader myReader;
+                     myReader = cmmd.ExecuteReader();
+                     while (myReader.Read())
                      {
-                         exist += 1;
+                         heu = myReader.GetString("Heures");
+                         dat = myReader.GetString("Dates");
+                         semain = myReader.GetString("IdsemC");
+                         codesal = myReader.GetString("CodeSalC");
+                         if (semain == semaine & heu == heure & date == dat & codesal == CodeSalle)
+                         {
+                             exist += 1;
+                         }
+
                      }
 
+
+                     if (exist == 0)
+                     {
+                         try
+                         {
+                             MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                             connexion.Open();
+                             // La commande Insert.
+                             string sql = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal)";
+
+                             MySqlCommand cmd = connexion.CreateCommand();
+                             cmd.CommandText = sql;
+
+                             cmd.CommandText = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal) ";
+
+                             cmd.Parameters.AddWithValue("@heures", heures.Text);
+                             cmd.Parameters.AddWithValue("@dates", dates.Text);
+                             cmd.Parameters.AddWithValue("@idsemaine", comboBox4.Text);
+                             cmd.Parameters.AddWithValue("@idEnseignant", comboBox3.Text);
+                             cmd.Parameters.AddWithValue("@matCours", comboBox1.Text);
+                             cmd.Parameters.AddWithValue("@CodeSal", comboBox2.Text);
+
+                             cmd.ExecuteNonQuery();
+
+                             MessageBox.Show("Ajouter Avec Succes ! ", "Reservation Cours", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             refresh();
+                             connexion.Close();
+                         }
+                         catch
+                         {
+                             MessageBox.Show(" Echec De Connexion. ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         }
+                     }
+                     else
+                     {
+                         MessageBox.Show("L'heure est deja prise ! ", "Erreur Cours", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     }
                  }
-
-
-                 if (exist == 0)
+                 else
                  {
-                     try
-                     {
-                         MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-                         connexion.Open();
-                         // La commande Insert.
-                         string sql = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal)";
-
-                         MySqlCommand cmd = connexion.CreateCommand();
-                         cmd.CommandText = sql;
-
-                         cmd.CommandText = "INSERT INTO cours (Heures, Dates, IdSemC, IdEnsC, CodeMatC, CodeSalC) VALUES (@heures,@dates,@idsemaine,@idEnseignant,@matCours,@CodeSal) ";
-
-                         cmd.Parameters.AddWithValue("@heures", heures.Text);
-                         cmd.Parameters.AddWithValue("@dates", dates.Text);
-                         cmd.Parameters.AddWithValue("@idsemaine", comboBox4.Text);
-                         cmd.Parameters.AddWithValue("@idEnseignant", comboBox3.Text);
-                         cmd.Parameters.AddWithValue("@matCours", comboBox1.Text);
-                         cmd.Parameters.AddWithValue("@CodeSal", comboBox2.Text);
-
-                         cmd.ExecuteNonQuery();
-
-                         MessageBox.Show("Ajouter Avec Succes ! ", "Reservation Cours", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         refresh();
-                         connexion.Close();
-                     }
-                     catch
-                     {
-                         MessageBox.Show(" Echec De Connexion. ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     }
+                     MessageBox.Show(" Erreur ! L'Heure saisie n'existe pas ! Veillez choisir parmis les heures lister", " Attention Heure ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                  }
-                 else {
-                     MessageBox.Show("L'heure est deja prise ! ", "Erreur Cours", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
+
+                 
              }
              else {
 
@@ -263,7 +270,7 @@ namespace GestionsEmploiesDuTemps
             String semaine = comboBox4.Text;
             String matricule = comboBox3.Text;
             String date = dates.Text;
-            String heure = heures.Text;
+            String heure = heures.GetItemText(heures.SelectedItem);
             String CodeSalle = comboBox2.Text;
             String salle = NomSalle.Text;
             String CodeMat = comboBox1.Text;
@@ -273,28 +280,36 @@ namespace GestionsEmploiesDuTemps
             if (matricule == "" |semaine == "" | heure == "" | CodeMat == "" | date == "") { MessageBox.Show(" Impossible de modifier. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                try
+                if (heure == "07H30-09H30" | heure == "09H45-11H45" | heure == "12H00-14H00" | heure == "14H45-16H15" | heure == "16H30-18H30" | heure == "18H45-20H45" | heure == "21H00-23H00")
                 {
-                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-                    connexion.Open();
-
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connexion; //(IdEns, NomEns, PrenomEns , SexeEns , AgeEns)
-                    cmd.CommandText = String.Format("update cours set Heures='{0}',Dates='{1}',IdSemC='{2}',CodeMatC='{3}',CodeSalC='{4}' where IdEnsC='{5}'", heures.Text, dates.Text, comboBox4.Text, comboBox1.Text, comboBox3.Text);
-                  
-                    int r = cmd.ExecuteNonQuery();
-
-                    if (r != 0)
+                    try
                     {
-                        MessageBox.Show("Cours a ete Bien Modifié", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        refresh();
-                        connexion.Close();
+                        MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                        connexion.Open();
+
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = connexion; //(IdEns, NomEns, PrenomEns , SexeEns , AgeEns)
+                        cmd.CommandText = String.Format("update cours set Heures='{0}',Dates='{1}',IdSemC='{2}',CodeMatC='{3}',CodeSalC='{4}' where IdEnsC='{5}'", heures.Text, dates.Text, comboBox4.Text, comboBox1.Text, comboBox3.Text);
+
+                        int r = cmd.ExecuteNonQuery();
+
+                        if (r != 0)
+                        {
+                            MessageBox.Show("Cours a ete Bien Modifié", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refresh();
+                            connexion.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" Echec de Modifier ", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show(" Echec de Modifier ", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(" Erreur ! L'Heure saisie n'existe pas ! Veillez choisir parmis les heures lister", " Attention Heure ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
 
         }
@@ -305,7 +320,7 @@ namespace GestionsEmploiesDuTemps
             String semaine = comboBox4.Text;
             String matricule = comboBox3.Text;
             String date = dates.Text;
-            String heure = heures.Text;
+            String heure = heures.GetItemText(heures.SelectedItem);
             String CodeSalle = comboBox2.Text;
             String salle = NomSalle.Text;
             String CodeMat = comboBox1.Text;
@@ -315,24 +330,26 @@ namespace GestionsEmploiesDuTemps
             if (matricule == "" | semaine == "" | salle == "" | CodeSalle == "" | date == "") { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                try
+                if (heure == "07H30-09H30" | heure == "09H45-11H45" | heure == "12H00-14H00" | heure == "14H45-16H15" | heure == "16H30-18H30" | heure == "18H45-20H45" | heure == "21H00-23H00")
                 {
-                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-                    connexion.Open();
-
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connexion;
-                    cmd.CommandText = String.Format("delete from cours where Dates='{0}' and Heures='{1}'", date,heure);
-                    
-                    int r = cmd.ExecuteNonQuery();
-                    if (r != 0)
+                    try
                     {
-                        MessageBox.Show("Cours a ete Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        refresh();
+                        MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                        connexion.Open();
+
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = connexion;
+                        cmd.CommandText = String.Format("delete from cours where Dates='{0}' and Heures='{1}'", date, heure);
+
+                        int r = cmd.ExecuteNonQuery();
+                        if (r != 0)
+                        {
+                            MessageBox.Show("Cours a ete Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refresh();
                             comboBox4.Text = "";
                             comboBox3.Text = "";
                             dates.Text = "";
-            
+
                             heures.Text = "";
                             comboBox2.Text = "";
                             comboBox1.Text = "";
@@ -340,13 +357,19 @@ namespace GestionsEmploiesDuTemps
                             LibeleMatiere.Text = "";
                             comboBox3.Focus();
 
-                        connexion.Close();
+                            connexion.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(" Erreur ! L'Heure saisie n'existe pas ! Veillez choisir parmis les heures lister", " Attention Heure ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
         }
 
@@ -356,7 +379,7 @@ namespace GestionsEmploiesDuTemps
             String semaine = comboBox4.Text;
             String matricule = comboBox3.Text;
             String date = dates.Text;
-            String heure = heures.Text;
+            String heure = heures.GetItemText(heures.SelectedItem);
             String CodeSalle = comboBox2.Text;
             String salle = NomSalle.Text;
             String CodeMat = comboBox1.Text;
@@ -366,38 +389,45 @@ namespace GestionsEmploiesDuTemps
             if (matricule == "" | semaine == "" | salle == "" | CodeSalle == "" | date == "") { MessageBox.Show(" Impossible de Supprimer. il y'a Un(des) Champ(s) Vide(s). ", "Modification Impossible", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                try
+                if (heure == "07H30-09H30" | heure == "09H45-11H45" | heure == "12H00-14H00" | heure == "14H45-16H15" | heure == "16H30-18H30" | heure == "18H45-20H45" | heure == "21H00-23H00")
                 {
-                    MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-                    connexion.Open();
-
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connexion;
-                    cmd.CommandText = String.Format("delete from cours where IdEnsC='{0}' and idSemC = '{1}' ", comboBox3.Text,comboBox4.Text);
-
-                    int r = cmd.ExecuteNonQuery();
-                    if (r != 0)
+                    try
                     {
-                        MessageBox.Show("Cours a ete  Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        refresh();
-                        comboBox4.Text = "";
-                        comboBox3.Text = "";
-                        dates.Text = "";
+                        MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                        connexion.Open();
 
-                        heures.Text = "";
-                        comboBox2.Text = "";
-                        comboBox1.Text = "";
-                        NomSalle.Text = "";
-                        LibeleMatiere.Text = "";
-                        comboBox3.Focus();
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = connexion;
+                        cmd.CommandText = String.Format("delete from cours where IdEnsC='{0}' and idSemC = '{1}' ", comboBox3.Text, comboBox4.Text);
 
-                        connexion.Close();
+                        int r = cmd.ExecuteNonQuery();
+                        if (r != 0)
+                        {
+                            MessageBox.Show("Cours a ete  Bien Annuler", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refresh();
+                            comboBox4.Text = "";
+                            comboBox3.Text = "";
+                            dates.Text = "";
+                            heures.Text = "";
+                            comboBox2.Text = "";
+                            comboBox1.Text = "";
+                            NomSalle.Text = "";
+                            LibeleMatiere.Text = "";
+                            comboBox3.Focus();
+
+                            connexion.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show(" Echec de Suppression ", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(" Erreur ! L'Heure saisie n'existe pas ! Veillez choisir parmis les heures lister", " Attention Heure ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
 
         }
@@ -436,11 +466,6 @@ namespace GestionsEmploiesDuTemps
         {
             Semaine form = new Semaine();
             form.ShowDialog();
-        }
-
-        private void options_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         void afficheSalle(){
             MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
@@ -606,5 +631,6 @@ namespace GestionsEmploiesDuTemps
         {
 
         }
+
     }
 }
