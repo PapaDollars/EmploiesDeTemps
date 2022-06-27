@@ -17,11 +17,6 @@ namespace GestionsEmploiesDuTemps
         {
             InitializeComponent();
             refresh();
-            refreshE();
-            refreshM();
-            refreshSemaine();
-            refreshSalle();
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -67,93 +62,6 @@ namespace GestionsEmploiesDuTemps
             }
         }
 
-        public void refreshM()
-        {
-            //fonction rechercher
-            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-            connexion.Open();
-            try
-            {
-                string requete = "SELECT * from matiere";
-                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
-                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
-                DataTable dt = new DataTable();
-                dt.Clear();
-                data.Fill(dt);
-                dataGridView3.DataSource = dt;
-
-                connexion.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-        }
-        public void refreshSalle()
-        {
-            //fonction rechercher
-            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-            connexion.Open();
-            try
-            {
-                string requete = "SELECT * from salle";
-                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
-                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
-                DataTable dt = new DataTable();
-                dt.Clear();
-                data.Fill(dt);
-                dataGridView4.DataSource = dt;
-
-                connexion.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-        }
-        public void refreshSemaine()
-        {
-            //fonction rechercher
-            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-            connexion.Open();
-            try
-            {
-                string requete = "SELECT * from semaine";
-                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
-                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
-                DataTable dt = new DataTable();
-                dt.Clear();
-                data.Fill(dt);
-                dataGridView5.DataSource = dt;
-
-                connexion.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-        }
-        public void refreshE()
-        {
-            //fonction rechercher
-            MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
-            connexion.Open();
-            try
-            {
-                string requete = "SELECT * from enseignant";
-                MySqlCommand cmmd = new MySqlCommand(requete, connexion);
-                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
-                DataTable dt = new DataTable();
-                dt.Clear();
-                data.Fill(dt);
-                dataGridView1.DataSource = dt;
-
-                connexion.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-        }
+        
     }
 }

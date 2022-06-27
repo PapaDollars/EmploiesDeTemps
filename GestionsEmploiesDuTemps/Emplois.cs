@@ -31,7 +31,7 @@ namespace GestionsEmploiesDuTemps
             connexion.Open();
             try
             {
-                string requete = "SELECT IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC from cours";
+                string requete = "SELECT IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC,IdCours from cours";
                 MySqlCommand cmmd = new MySqlCommand(requete, connexion);
                 MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
                 DataTable dt = new DataTable();
@@ -99,10 +99,12 @@ namespace GestionsEmploiesDuTemps
             String libelleMat = LibeleMatiere.Text;
             comboBox3.Focus();
              string heu="";
+             string Ens="";
              string dat = "";
              string semain ="";
              string codesal = "";
              int exist = 0;
+             int exist2 = 0;
 
              if (semaine != "" & salle != "" & date != "" & CodeSalle != "" & matricule != "")
              {
@@ -111,13 +113,14 @@ namespace GestionsEmploiesDuTemps
                      MySqlConnection con = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
                      con.Open();
 
-                     string search = "select Heures,Dates,IdSemC,CodeSalC from cours";
+                     string search = "select IdEnsC,Heures,Dates,IdSemC,CodeSalC from cours";
 
                      MySqlCommand cmmd = new MySqlCommand(search, con);
                      MySqlDataReader myReader;
                      myReader = cmmd.ExecuteReader();
                      while (myReader.Read())
                      {
+                         Ens = myReader.GetString("IdEnsC");
                          heu = myReader.GetString("Heures");
                          dat = myReader.GetString("Dates");
                          semain = myReader.GetString("IdsemC");
@@ -126,11 +129,13 @@ namespace GestionsEmploiesDuTemps
                          {
                              exist += 1;
                          }
-
+                         if (heure == heu & codesal == CodeSalle & Ens == matricule) 
+                         { 
+                             exist2 += 1; 
+                         }
                      }
 
-
-                     if (exist == 0)
+                     if (exist == 0 & exist2 == 0)
                      {
                          try
                          {
@@ -197,6 +202,7 @@ namespace GestionsEmploiesDuTemps
                 comboBox3.Text = dataGridEmplois.Rows[e.RowIndex].Cells[1].Value.ToString();
                 heures.Text = dataGridEmplois.Rows[e.RowIndex].Cells[2].Value.ToString();
                 comboBox2.Text = dataGridEmplois.Rows[e.RowIndex].Cells[5].Value.ToString();
+                idCours.Text = dataGridEmplois.Rows[e.RowIndex].Cells[6].Value.ToString();
                 comboBox1.Text = dataGridEmplois.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
         }
@@ -223,6 +229,19 @@ namespace GestionsEmploiesDuTemps
                 data.Fill(dt);
                 dataGridEmplois.DataSource = dt;
             
+            }
+            if (recherch == "" && semaineRe != "")
+            {
+
+                string search = "select  IdSemC,IdEnsC,Heures,Dates,CodeMatC,CodeSalC from cours where  IdSemC='" + semaineRecherche.Text + "'; ";
+
+                MySqlCommand cmmd = new MySqlCommand(search, connexion);
+                MySqlDataAdapter data = new MySqlDataAdapter(cmmd);
+                DataTable dt = new DataTable();
+                dt.Clear();
+                data.Fill(dt);
+                dataGridEmplois.DataSource = dt;
+
             }
             if (recherch != "" && semaineRe != "")
             {// "SELECT IdSemC,IdEnsC,Heures,Dates,CodeMatC,LibMat,CodeSalC,NomSalle from cours";
@@ -318,7 +337,7 @@ namespace GestionsEmploiesDuTemps
 
                             MySqlCommand cmd = new MySqlCommand();
                             cmd.Connection = connexion; //(IdEns, NomEns, PrenomEns , SexeEns , AgeEns)
-                            cmd.CommandText = String.Format("update cours set Heures='{0}',Dates='{1}',IdSemC='{2}',CodeMatC='{3}',CodeSalC='{4}' where IdEnsC='{5}'", heures.Text, dates.Text, comboBox4.Text, comboBox1.Text, comboBox2.Text, comboBox3.Text);
+                            cmd.CommandText = String.Format("update cours set Heures='{0}',Dates='{1}',IdSemC='{2}',CodeMatC='{3}',CodeSalC='{4}' where IdEnsC='{5}' and IdCours={6}", heures.Text, dates.Text, comboBox4.Text, comboBox1.Text, comboBox2.Text, comboBox3.Text, idCours.Text);
 
                             int r = cmd.ExecuteNonQuery();
 
@@ -379,7 +398,7 @@ namespace GestionsEmploiesDuTemps
 
                         MySqlCommand cmd = new MySqlCommand();
                         cmd.Connection = connexion;
-                        cmd.CommandText = String.Format("delete from cours where Dates='{0}' and Heures='{1}'", date, heure);
+                        cmd.CommandText = String.Format("delete from cours where IdCours={0}",idCours.Text);
 
                         int r = cmd.ExecuteNonQuery();
                         if (r != 0)
@@ -668,6 +687,16 @@ namespace GestionsEmploiesDuTemps
         }
 
         private void dates_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void heures_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

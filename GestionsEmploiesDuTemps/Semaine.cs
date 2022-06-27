@@ -34,34 +34,45 @@ namespace GestionsEmploiesDuTemps
         {
             //Enregistrer
             String idSemaine = NomSalle.Text;
+            //String heure = heures.GetItemText(heures.SelectedItem);
 
             if (idSemaine != "" )
             {
-                MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
+                //if (heure == "07H30-09H30" | heure == "09H45-11H45" | heure == "12H00-14H00" | heure == "14H45-16H15" | heure == "16H30-18H30" | heure == "18H45-20H45" | heure == "21H00-23H00")
+               // {
+                    try
+                    {
+                        MySqlConnection connexion = new MySqlConnection("database=time_management ; server=localhost ; user id=root ; pwd=");
 
-                try
-                {
-                    connexion.Open();
-                    // La commande Insert.
-                    string sql = "INSERT INTO semaine (IdSem) VALUES (@IdSem)";
+                        connexion.Open();
+                        // La commande Insert.
+                        string sql = "INSERT INTO semaine (IdSem) "
+                                                            + " values (@idsem) ";
+                        MySqlCommand cmd = connexion.CreateCommand();
+                        cmd.CommandText = sql;
 
-                    MySqlCommand cmd = connexion.CreateCommand();
-                    cmd.CommandText = sql;
+                        cmd.CommandText = "INSERT INTO semaine (IdSem) "
+                                                            + " values (@idsem) ";
 
-                    cmd.CommandText =" INSERT INTO semaine (IdSem) VALUES (@IdSem) ";
+                        cmd.Parameters.AddWithValue("@idsem", NomSalle.Text);
+                        //cmd.Parameters.AddWithValue("@heures", heures.GetItemText(heures.SelectedItem));
 
-                    cmd.Parameters.AddWithValue("@IdSem", NomSalle.Text);
-                   
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show(" Semaine Ajouter Avec Succes ! ", "Ajout Enseignant", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Semaine a ete ajouter Avec Succes ! ", "Ajout Semaine", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //refresh();
+                        connexion.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" Echec De Connexion. ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                //}
+                //else
+                //{
+                  //  MessageBox.Show(" Erreur ! L'Heure saisie n'existe pas ! Veillez choisir parmis les heures lister", " Attention Heure ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
 
-                    connexion.Close();
-                }
-                catch
-                {
-                    MessageBox.Show(" Echec De Connexion. ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
             }
             else { MessageBox.Show(" Echec ! Champ(s) Vide(s). ", " Attention ! ", MessageBoxButtons.OK, MessageBoxIcon.Error); }

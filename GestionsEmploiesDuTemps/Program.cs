@@ -16,7 +16,7 @@ namespace GestionsEmploiesDuTemps
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Emplois());
+            Application.Run(new Form1());
         }
     }
 }

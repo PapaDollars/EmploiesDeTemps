@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.idCours = new System.Windows.Forms.MaskedTextBox();
             this.heures = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -148,6 +150,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.idCours);
             this.panel1.Controls.Add(this.heures);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.comboBox4);
@@ -189,6 +193,29 @@
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(45, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 20);
+            this.label11.TabIndex = 131;
+            this.label11.Text = "IdReserv :";
+            // 
+            // idCours
+            // 
+            this.idCours.Culture = new System.Globalization.CultureInfo("en-US");
+            this.idCours.Enabled = false;
+            this.idCours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idCours.ForeColor = System.Drawing.Color.Black;
+            this.idCours.Location = new System.Drawing.Point(174, 53);
+            this.idCours.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.idCours.Name = "idCours";
+            this.idCours.Size = new System.Drawing.Size(221, 27);
+            this.idCours.TabIndex = 130;
+            this.idCours.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
             // heures
             // 
             this.heures.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -203,15 +230,16 @@
             "16H30-18H30",
             "18H45-20H45",
             "21H00-23H00"});
-            this.heures.Location = new System.Drawing.Point(169, 226);
+            this.heures.Location = new System.Drawing.Point(167, 231);
             this.heures.Name = "heures";
             this.heures.Size = new System.Drawing.Size(225, 28);
             this.heures.TabIndex = 128;
+            this.heures.SelectedIndexChanged += new System.EventHandler(this.heures_SelectedIndexChanged);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(169, 384);
+            this.comboBox1.Location = new System.Drawing.Point(173, 387);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(221, 24);
@@ -221,7 +249,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(171, 73);
+            this.comboBox4.Location = new System.Drawing.Point(173, 93);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(221, 24);
@@ -231,7 +259,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(172, 162);
+            this.comboBox3.Location = new System.Drawing.Point(174, 182);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(221, 24);
@@ -241,7 +269,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(171, 287);
+            this.comboBox2.Location = new System.Drawing.Point(175, 290);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(221, 24);
@@ -323,7 +351,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(43, 73);
+            this.label9.Location = new System.Drawing.Point(45, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 20);
             this.label9.TabIndex = 114;
@@ -333,7 +361,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 167);
+            this.label8.Location = new System.Drawing.Point(45, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 20);
             this.label8.TabIndex = 113;
@@ -343,7 +371,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(43, 118);
+            this.label7.Location = new System.Drawing.Point(45, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 112;
@@ -351,7 +379,7 @@
             // 
             // dates
             // 
-            this.dates.Location = new System.Drawing.Point(171, 116);
+            this.dates.Location = new System.Drawing.Point(173, 136);
             this.dates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dates.Name = "dates";
             this.dates.Size = new System.Drawing.Size(223, 22);
@@ -372,7 +400,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(41, 229);
+            this.label6.Location = new System.Drawing.Point(39, 234);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 20);
             this.label6.TabIndex = 108;
@@ -382,7 +410,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.Location = new System.Drawing.Point(399, 422);
+            this.label18.Location = new System.Drawing.Point(403, 425);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(82, 20);
             this.label18.TabIndex = 106;
@@ -393,7 +421,7 @@
             this.LibeleMatiere.Culture = new System.Globalization.CultureInfo("en-US");
             this.LibeleMatiere.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LibeleMatiere.ForeColor = System.Drawing.Color.Black;
-            this.LibeleMatiere.Location = new System.Drawing.Point(169, 418);
+            this.LibeleMatiere.Location = new System.Drawing.Point(173, 421);
             this.LibeleMatiere.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LibeleMatiere.Name = "LibeleMatiere";
             this.LibeleMatiere.Size = new System.Drawing.Size(223, 27);
@@ -403,7 +431,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label19.Location = new System.Drawing.Point(399, 389);
+            this.label19.Location = new System.Drawing.Point(403, 392);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 20);
             this.label19.TabIndex = 104;
@@ -413,7 +441,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(41, 405);
+            this.label23.Location = new System.Drawing.Point(45, 408);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(84, 20);
             this.label23.TabIndex = 103;
@@ -424,7 +452,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label16.Location = new System.Drawing.Point(401, 324);
+            this.label16.Location = new System.Drawing.Point(405, 327);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 20);
             this.label16.TabIndex = 101;
@@ -435,7 +463,7 @@
             this.NomSalle.Culture = new System.Globalization.CultureInfo("en-US");
             this.NomSalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NomSalle.ForeColor = System.Drawing.Color.Black;
-            this.NomSalle.Location = new System.Drawing.Point(169, 322);
+            this.NomSalle.Location = new System.Drawing.Point(173, 325);
             this.NomSalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NomSalle.Name = "NomSalle";
             this.NomSalle.Size = new System.Drawing.Size(223, 27);
@@ -445,7 +473,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label15.Location = new System.Drawing.Point(399, 292);
+            this.label15.Location = new System.Drawing.Point(403, 295);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 20);
             this.label15.TabIndex = 99;
@@ -456,7 +484,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(41, 310);
+            this.label12.Location = new System.Drawing.Point(45, 313);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 20);
             this.label12.TabIndex = 98;
@@ -509,7 +537,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(373, 41);
             this.button4.TabIndex = 86;
-            this.button4.Text = "Suppression en cascade";
+            this.button4.Text = "Suppression Semaine";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -586,10 +614,11 @@
             // 
             // dataGridEmplois
             // 
+            this.dataGridEmplois.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridEmplois.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridEmplois.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridEmplois.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmplois.Location = new System.Drawing.Point(629, 130);
+            this.dataGridEmplois.Location = new System.Drawing.Point(637, 125);
             this.dataGridEmplois.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridEmplois.Name = "dataGridEmplois";
             this.dataGridEmplois.RowTemplate.Height = 24;
@@ -668,6 +697,8 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox heures;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox idCours;
 
     }
 }
